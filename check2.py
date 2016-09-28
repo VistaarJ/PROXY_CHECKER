@@ -3,30 +3,33 @@ import Queue
 import threading
 import urllib2
 
-
-urls=["172.16.114.146:3128",
-"172.16.114.151:3128",
-"172.16.114.158:3128",
-"172.16.114.163:3128",
-"172.16.114.181:3128",
-"172.16.116.71:3128",
-"172.16.114.34:3128",
-"172.16.114.53:8080",
-"172.16.114.69:3128",
-"172.16.114.84:8080",
-"172.16.114.93:3128"]
-
+myfile = open("candidates.txt")
+read = myfile.read()
+urls = read.split()
 
 response_url = "https://www.google.com/humans.txt"
 redirect_output_to_file = "temp.txt"
 google_return_value="Google is built by a large team of engineers, designers, researchers, robots, and others in many different sites across the globe. It is updated continuously, and built with more tools and technologies than we can shake a stick at. If you'd like to help us out, see google.com/careers.\n"
+l=[]
+threads=[]
+
+def CheckProxy(s):
+	comm = "curl -s --connect-timeout 1 --proxy " + "http://" + s + " " + response_url
+	var = os.popen(comm).read()
+	if(var==google_return_value):
+		l.append(s)
+
 
 for u in urls:
-	comm = "curl -s --connect-timeout 1 --proxy " + "http://" + u + " " + response_url + " > " + redirect_output_to_file 
-	print(comm)
-	os.system(comm)
-	myfile = open("temp.txt")
-	output = myfile.read()
-	if(output==google_return_value):
-		print("Proxy working---->  " + u)
-#print(output)
+	t = threading.Thread(target=CheckProxy,args=(u,))
+	t.Daemon=False
+	threads.append(t)
+
+for x in threads:
+	x.start()
+
+for x in threads:
+	x.join()
+
+for x in l:
+	print("Proxy working ----> " + x)
