@@ -21,9 +21,10 @@ def CheckProxy(s):
 
 
 for u in urls:
-	t = threading.Thread(target=CheckProxy,args=(u,))
-	t.Daemon=False
-	threads.append(t)
+	if u!="172.16.114.121:3128":
+		t = threading.Thread(target=CheckProxy,args=(u,))
+		t.Daemon=False
+		threads.append(t)
 
 for x in threads:
 	x.start()
