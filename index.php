@@ -5,17 +5,15 @@
 	<title>Proxy Checker</title>
 
 	<link rel="stylesheet" href="bootstrap/css/bootstrap.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-  	<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-  <link rel="stylesheet" href="AdminLTE/css/AdminLTE.min.css">
-  <link rel="stylesheet" href="AdminLTE/css/skins/_all-skins.min.css">
+
+  <!-- <link rel="stylesheet" href="AdminLTE/css/AdminLTE.min.css"> -->
+  <!-- <link rel="stylesheet" href="AdminLTE/css/skins/_all-skins.min.css"> -->
   <script src="bootstrap/js/jquery.min.js"></script>
   <script src="bootstrap/js/jquery-ui.js"></script>
   <script src="bootstrap/js/bootstrap.js"></script>
-  <script src="AdminLTE/js/app.js"></script>
 </head>
 
-<body background="hospital_photos/small_5.jpg" style="background-repeat: no-repeat; background-attachment: fixed; background-size: cover">
+<!-- <body background="kfp-2.jpg" style="background-repeat: no-repeat; background-attachment: fixed; background-size: cover"> -->
 <div class="row">
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
@@ -62,7 +60,16 @@ if($cnt>=3)
 }
 
 ?>
-
+<div class="row">
+    <nav class="navbar navbar-default navbar-fixed-bottom">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="https://docs.google.com/forms/d/e/1FAIpQLSf6E3__fQg2XTO6JiPhrtgjdAT7GcwudYql5HdxJt1We2elQQ/viewform" style="font-size: xx-small"><b>Problems? Contact Vistaar Juneja</b></a>
+            </div>
+        </div>
+    </nav>
+</div>
 
 </body>
+
 </html>
