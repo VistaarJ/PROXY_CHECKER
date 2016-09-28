@@ -12,7 +12,7 @@
   <script src="bootstrap/js/jquery-ui.js"></script>
   <script src="bootstrap/js/bootstrap.js"></script>
 </head>
-
+<body>
 <!-- <body background="kfp-2.jpg" style="background-repeat: no-repeat; background-attachment: fixed; background-size: cover"> -->
 <div class="row">
     <nav class="navbar navbar-default navbar-fixed-top">
@@ -33,7 +33,6 @@
 ?>
 <br> ----Running local system scans every 2 minutes---- 
 <br> 
-<!--   A total of <?php echo $cnt; ?> proxies have been found! -->
 
 <?php
 
