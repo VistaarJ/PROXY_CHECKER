@@ -31,5 +31,9 @@ for x in threads:
 for x in threads:
 	x.join()
 
+myfile = open("working_proxies.txt","w")
+
 for x in l:
-	print("Proxy working ----> " + x)
+	myfile.write(x+"\n")
+
+myfile.close()
