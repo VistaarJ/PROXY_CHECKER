@@ -35,33 +35,25 @@
 ?>
 
 <br> ----Running local system scans every 2 minutes---- 
-<br> 
-
-<?php
-
-shuffle($lines);
-
-?>
+<br>
+<br> ----Running full system scan every 24 hours----
+<br>
 
 <br> To prevent too much load on any particular proxy, only a few proxies are listed below: <br> 
-<br> Recommended Proxies: <br><br> 
+<br> Top recommended Proxies: <br><br> 
 
 <?php
 
 if($cnt>=1)
 {
-  echo "1) " . $lines[0] . "<br>";
+  echo "1) " . $lines[0] . "<br><br>";
 }
 
 if($cnt>=2)
 {
-  echo "2) " . $lines[1] . "<br>" ;
+  echo "2) " . $lines[1] . "<br><br>" ;
 }
 
-if($cnt>=3)
-{
-  echo "3) " . $lines[2] . "<br>" ;
-}
 
 ?>
 <div class="row">
