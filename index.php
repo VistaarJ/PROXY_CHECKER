@@ -13,10 +13,6 @@
   <script src="bootstrap/js/bootstrap.js"></script>
 </head>
 <body>
-<<<<<<< HEAD
-
-=======
->>>>>>> f8113e44e7c1e18b92db6910a485f525d4287fa8
 
 <div class="row">
     <nav class="navbar navbar-default navbar-fixed-top">
@@ -40,10 +36,6 @@
 
 <br> ----Running local system scans every 2 minutes---- 
 <br> 
-<<<<<<< HEAD
-
-=======
->>>>>>> f8113e44e7c1e18b92db6910a485f525d4287fa8
 
 <?php
 
