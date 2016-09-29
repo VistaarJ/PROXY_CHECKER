@@ -12,6 +12,7 @@
   <script src="bootstrap/js/jquery-ui.js"></script>
   <script src="bootstrap/js/bootstrap.js"></script>
 </head>
+<body>
 
 <!-- <body background="kfp-2.jpg" style="background-repeat: no-repeat; background-attachment: fixed; background-size: cover"> -->
 <div class="row">
@@ -27,23 +28,28 @@
 </div>
 
 <?php
+
   $myfile = "working_proxies.txt";
   $lines = file($myfile);
   $cnt = count($lines);
+ 
 ?>
+
 <br> ----Running local system scans every 2 minutes---- 
 <br> 
-<!--   A total of <?php echo $cnt; ?> proxies have been found! -->
+
 
 <?php
 
 shuffle($lines);
 
 ?>
+
 <br> To prevent too much load on any particular proxy, only a few proxies are listed below: <br> 
 <br> Recommended Proxies: <br><br> 
 
 <?php
+
 if($cnt>=1)
 {
   echo "1) " . $lines[0] . "<br>";
