@@ -2,8 +2,9 @@ import os
 import Queue
 import threading
 import urllib2
+import random
 
-myfile = open("candidates.txt")
+myfile = open("/var/www/html/PROXY_CHECKER/candidates.txt")
 read = myfile.read()
 urls = read.split()
 
@@ -13,6 +14,8 @@ google_return_value="Google is built by a large team of engineers, designers, re
 l=[]
 threads=[]
 
+#print("check if this is working!")
+
 def CheckProxy(s):
 	comm = "curl -s --connect-timeout 1 --proxy " + "http://" + s + " " + response_url
 	var = os.popen(comm).read()
@@ -21,10 +24,9 @@ def CheckProxy(s):
 
 
 for u in urls:
-	if u!="172.16.114.121:3128":
-		t = threading.Thread(target=CheckProxy,args=(u,))
-		t.Daemon=False
-		threads.append(t)
+	t = threading.Thread(target=CheckProxy,args=(u,))
+	t.Daemon=False
+	threads.append(t)
 
 for x in threads:
 	x.start()
@@ -32,9 +34,12 @@ for x in threads:
 for x in threads:
 	x.join()
 
-myfile = open("working_proxies.txt","w")
+myfile = open("/var/www/html/PROXY_CHECKER/working_proxies.txt","w")
+
+random.shuffle(l)
 
 for x in l:
-	myfile.write(x+"\n")
+	if x!="172.16.114.121:3128":
+		myfile.write(x+"\n")
 
 myfile.close()

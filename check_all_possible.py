@@ -17,7 +17,7 @@ class bcolors:
 new_dict = dict()
 
 #store all the current candidates in a map
-myfile=open("candidates.txt")
+myfile=open("/var/www/html/PROXY_CHECKER/candidates.txt")
 read=myfile.read()
 read=read.split()
 for line in read:
@@ -25,14 +25,13 @@ for line in read:
 myfile.close()
 
 #put all the proxy ranges 
-myfile = open("proxy_ranges.txt")
+myfile = open("/var/www/html/PROXY_CHECKER/proxy_ranges.txt")
 read = myfile.read()
 read = read.split()
 myfile.close()
 
 
 response_url = "https://www.google.com/humans.txt"
-redirect_output_to_file = "temp2.txt"
 google_return_value="Google is built by a large team of engineers, designers, researchers, robots, and others in many different sites across the globe. It is updated continuously, and built with more tools and technologies than we can shake a stick at. If you'd like to help us out, see google.com/careers.\n"
 l=[]
 threads=[]
@@ -45,14 +44,14 @@ def inc(str):
 	# ans = lambda n: socket.inet_ntoa(struct.pack('!I', n))
 	return rev
 
-myfile = open("full_list.txt",'w')
+myfile = open("/var/www/html/PROXY_CHECKER/full_list.txt",'w')
 
 for line in read:
 	str = line.split("-")
 	place = str[0]
 	starting_add = str[1]
 	ending_add = str[2]
-	print(place + starting_add + ending_add)
+	#print(place + starting_add + ending_add)
 	temp = starting_add
 	while(temp!=ending_add):
 		myfile.write(temp+":3128\n")
@@ -61,7 +60,7 @@ for line in read:
 
 myfile.close()
 
-myfile = open("full_list.txt")
+myfile = open("/var/www/html/PROXY_CHECKER/full_list.txt")
 read = myfile.read()
 urls = read.split()
 myfile.close()
@@ -73,7 +72,6 @@ def CheckProxy(s):
 	var = os.popen(comm).read()
 	if(var==google_return_value):
 		l.append(s)
-		print(bcolors.OKGREEN+s+bcolors.ENDC)
 
 
 for u in urls:
@@ -88,9 +86,8 @@ for x in threads:
 	x.join()
 
 #Write all the new candidates into candidates.txt
-write_into_candidates = open("candidates.txt",'a')
+write_into_candidates = open("/var/www/html/PROXY_CHECKER/candidates.txt",'a')
 for x in l:
 	if not new_dict.has_key(x):
 		write_into_candidates.write(x+"\n")
-	print(bcolors.OKGREEN+"Proxy working ----> " + x+bcolors.ENDC)
 write_into_candidates.close()
