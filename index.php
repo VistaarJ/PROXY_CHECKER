@@ -27,6 +27,16 @@
 </div>
 
 <?php
+$handle = fopen("counter.txt","r");
+$counter = (int) fread($handle,20);
+fclose($handle);
+$counter++;
+$handle = fopen("counter.txt","w");
+fwrite($handle,$counter);
+fclose($handle);
+?>
+
+<?php
 
   $myfile = "working_proxies.txt";
   $lines = file($myfile);
@@ -60,7 +70,7 @@ if($cnt>=2)
     <nav class="navbar navbar-default navbar-fixed-bottom">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="https://docs.google.com/forms/d/e/1FAIpQLSf6E3__fQg2XTO6JiPhrtgjdAT7GcwudYql5HdxJt1We2elQQ/viewform" style="font-size: xx-small"><b>  Problems? Contact Vistaar Juneja</b></a>
+                <a class="navbar-brand" href="https://docs.google.com/forms/d/e/1FAIpQLSf6E3__fQg2XTO6JiPhrtgjdAT7GcwudYql5HdxJt1We2elQQ/viewform" style="font-size: xx-small"><b>  Problems/Feedback? Contact Vistaar Juneja</b></a>
             </div>
         </div>
     </nav>
