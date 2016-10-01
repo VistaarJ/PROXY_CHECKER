@@ -1,7 +1,26 @@
 
+<!--
+
+If you are reading this and want to contribute to the atrocius design , please feel free to contact me (Vistaar Juneja) through
+Facebook. 
+
+-->
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<style>
+
+	#hits {
+		color: red;
+		
+	}
+
+
+	</style>
+
 	<title>Proxy Checker</title>
 
 	<link rel="stylesheet" href="bootstrap/css/bootstrap.css">
@@ -66,11 +85,14 @@ if($cnt>=2)
 
 
 ?>
+<br><br><br><br><br><br><br><br><br><br>
+<div id="hits"> HITS: <?php  echo $counter; ?></div>
+
 <div class="row">
     <nav class="navbar navbar-default navbar-fixed-bottom">
         <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="https://docs.google.com/forms/d/e/1FAIpQLSf6E3__fQg2XTO6JiPhrtgjdAT7GcwudYql5HdxJt1We2elQQ/viewform" style="font-size: xx-small"><b>  Problems/Feedback? Contact Vistaar Juneja</b></a>
+            <div class="navbar-footer">
+                <a class="navbar-brand" href="https://docs.google.com/forms/d/e/1FAIpQLSf6E3__fQg2XTO6JiPhrtgjdAT7GcwudYql5HdxJt1We2elQQ/viewform" style="font-size: 15px"><b>  Problems/Feedback? Contact Vistaar Juneja</b></a>
             </div>
         </div>
     </nav>
