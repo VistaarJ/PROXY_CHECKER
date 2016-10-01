@@ -85,7 +85,7 @@ if($cnt>=2)
 
 
 ?>
-<br><br><br><br><br><br><br><br><br><br>
+
 <div id="hits"> HITS: <?php  echo $counter; ?></div>
 
 <div class="row">
