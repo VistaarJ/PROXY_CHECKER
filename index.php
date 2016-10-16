@@ -2,7 +2,7 @@
 <!--
 
 If you are reading this and want to contribute to the atrocius design , please feel free to contact me (Vistaar Juneja) through
-Facebook. 
+Facebook at https://www.facebook.com/vistaar.juneja 
 
 -->
 
@@ -48,10 +48,13 @@ Facebook.
 <?php
 $handle = fopen("counter.txt","r");
 $counter = (int) fread($handle,20);
-fclose($handle);
 $counter++;
+fclose($handle);
 $handle = fopen("counter.txt","w");
-fwrite($handle,$counter);
+if(flock($handle,LOCK_EX)) { 	
+	fwrite($handle,$counter);
+	flock($handle,LOCK_UN);
+}
 fclose($handle);
 ?>
 
@@ -67,8 +70,9 @@ fclose($handle);
 <br>
 <br> ----Running full system scan every 24 hours----
 <br>
-
-<br> To prevent too much load on any particular proxy, only a few proxies are listed below: <br> 
+<br>
+The list of recommended proxies changes every 2 minutes to ensure proper traffic distribution. <br>
+<br> <b> For 24/7 access, put 172.16.114.121 as a proxy exception in your browser! </b> <br> 
 <br> Top recommended Proxies: <br><br> 
 
 <?php
@@ -86,7 +90,21 @@ if($cnt>=2)
 
 ?>
 
-<div id="hits"> HITS: <?php  echo $counter; ?></div>
+<?php
+
+include_once 'dbconnect.php';
+$query = "SELECT * from information";
+
+$run = mysqli_query($conn,$query);
+$val =  mysqli_fetch_assoc($run);
+$cntr = $val['counter'];
+$cntr++;
+$query = "UPDATE information SET counter=counter+1";
+$run = mysqli_query($conn,$query);
+
+?>
+
+ <div id="hits"> Total hits: <?php  echo $cntr; ?></div> 
 
 <div class="row">
     <nav class="navbar navbar-default navbar-fixed-bottom">

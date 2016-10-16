@@ -51,7 +51,7 @@ for line in read:
 	place = str[0]
 	starting_add = str[1]
 	ending_add = str[2]
-	#print(place + starting_add + ending_add)
+	print(place + starting_add + ending_add)
 	temp = starting_add
 	while(temp!=ending_add):
 		myfile.write(temp+":3128\n")
