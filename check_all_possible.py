@@ -56,6 +56,7 @@ for line in read:
 	while(temp!=ending_add):
 		myfile.write(temp+":3128\n")
 		myfile.write(temp+":8080\n")
+		myfile.write(temp+":808\n")
 		temp = inc(temp)
 
 myfile.close()
